@@ -41,20 +41,58 @@
 	</properties>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<!-- <minimizeJar>true</minimizeJar> -->
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>template.logging.LogLeveler</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-shade-plugin</artifactId>
-					<version>3.2.1</version>
-					<executions>
-						<execution>
-							<phase>package</phase>
-							<goals>
-								<goal>shade</goal>
-							</goals>
-						</execution>
-					</executions>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>3.1.1</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>0.8.5</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-report-plugin</artifactId>
+					<version>3.0.0-M3</version>
 				</plugin>
 
 
@@ -79,7 +117,15 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.0.2</version>
+					<version>3.2.0</version>
+					<!-- <configuration> -->
+					<!-- <archive> -->
+					<!-- <manifest> -->
+					<!-- <addClasspath>true</addClasspath> -->
+					<!-- <mainClass>template.logging.LogLeveler</mainClass> -->
+					<!-- </manifest> -->
+					<!-- </archive> -->
+					<!-- </configuration> -->
 				</plugin>
 				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
@@ -123,31 +169,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<!-- plugins { -->
-	<!-- id 'java-library' // for Java Library -->
-	<!-- id 'application' // for building a CLI application -->
-	<!-- id 'jacoco' // for test coverage -->
-	<!-- } -->
-
-	<!-- repositories { -->
-	<!-- jcenter() // for resolving dependencies; declare any Maven/Ivy/file 
-		repository here -->
-	<!-- } -->
-
-	<!-- application { -->
-	<!-- mainClassName = 'template.config.Configurator' // define the main class -->
-	<!-- } -->
-
-	<!-- test { -->
-	<!-- useJUnitPlatform() // platform for unit tests -->
-	<!-- } -->
-
-	<!-- version = '0.1.0' -->
-	<!-- jar { -->
-	<!-- manifest { // add data to MANIFEST.MF -->
-	<!-- attributes('Implementation-Title': project.name, -->
-	<!-- 'Implementation-Version': project.version) -->
-	<!-- } -->
-	<!-- } -->
 </project>
