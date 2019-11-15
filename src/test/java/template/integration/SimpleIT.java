@@ -9,5 +9,5 @@ public class SimpleIT {
 	public void alwaysTrue() {
 		assertTrue(true);
 	}
-	
+
 }
