@@ -30,8 +30,8 @@ $: mvn compile
 ```
 
 ```
-$: mvn package "-Dapp.cli.defined=Build-Value"  # build-time config
-$: mvn install "-Dapp.cli.defined=Build-Value"  # install to a local .m2 repository
+$: mvn package -Dapp.cli.defined="Build-Value"  # build-time config
+$: mvn install -Dapp.cli.defined="Build-Value"  # install to a local .m2 repository
 ```
 
 #### site
