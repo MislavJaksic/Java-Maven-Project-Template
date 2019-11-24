@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class Configurator {
 	public void printCliDDemoValue() {
-		System.out.println(System.getProperty("jarCli"));
+		System.out.println(System.getProperty("jar.cli"));
 	}
 
 	public void printCliFileProperties() {
