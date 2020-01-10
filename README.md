@@ -66,3 +66,10 @@ $: mvn test surefire-report:report
 # Note: see the XML test reports in `target/surefire-reports/TEST-**.xml`
 # Note: see the HTML test reports in `target/site/surefire-report.html`
 ```
+
+### Checks
+
+```
+$: mvn checkstyle:check  # check style
+$: mvn pmd:check  # static code analysis
+```
