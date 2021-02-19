@@ -5,18 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-
-import template.mocking.PasswordEncoder;
-import template.mocking.User;
-import template.mocking.UserRepository;
-import template.mocking.UserService;
 
 public class UserServiceTest {
 	// Test data: inputs and outputs
@@ -95,7 +90,7 @@ public class UserServiceTest {
 		void isNotMethodCalled() {
 			user_service.isValidUser(disabled_user.getId(), disabled_password);
 
-			verifyZeroInteractions(password_encoder);
+			verifyNoInteractions(password_encoder);
 		}
 	}
 
