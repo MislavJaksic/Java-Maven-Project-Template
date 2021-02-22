@@ -1,5 +1,7 @@
 ## Java Maven Project Template
 
+[Maven Tutorial](https://github.com/MislavJaksic/Maven-Tutorial)
+
 ```
 # Note: install Java and Maven
 
