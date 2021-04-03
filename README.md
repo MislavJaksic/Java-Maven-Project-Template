@@ -75,3 +75,5 @@ $: mvn test surefire-report:report
 $: mvn checkstyle:check  # check style
 $: mvn pmd:check  # static code analysis
 ```
+
+ADD A PROFILER! https://www.ej-technologies.com/products/jprofiler/overview.html
