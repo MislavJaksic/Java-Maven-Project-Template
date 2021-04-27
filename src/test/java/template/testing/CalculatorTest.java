@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -35,6 +36,14 @@ public class CalculatorTest {
 		String message = "1 + 1 equals 2";
 
 		assertEquals(expected, actual, message);
+	}
+	
+	@Test
+	@DisplayName("/ 0 exception")
+	void zeroDividedByZero() {
+	    Assertions.assertThrows(ArithmeticException.class, () -> {
+	    	calculator.divide(0);
+		});
 	}
 
 	@ParameterizedTest

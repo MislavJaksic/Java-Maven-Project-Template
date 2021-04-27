@@ -69,11 +69,15 @@ $: mvn test surefire-report:report
 # Note: see the HTML test reports in `target/site/surefire-report.html`
 ```
 
-### Checks
+### Checkstyle and PMD checks
 
 ```
 $: mvn checkstyle:check  # check style
 $: mvn pmd:check  # static code analysis
 ```
 
-ADD A PROFILER! https://www.ej-technologies.com/products/jprofiler/overview.html
+### Profiler
+
+```
+https://www.ej-technologies.com/products/jprofiler/overview.html
+```
